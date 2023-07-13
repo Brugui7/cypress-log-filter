@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "types": [
+      "cypress",
+      "node",
+      "jest",
+      "mocha",
+    ],
+    "typeRoots": [
+      "../dist"
+    ],
+    "baseUrl": "./"
+  },
+  "include": [
+    "**/*.ts"
+  ]
+}
