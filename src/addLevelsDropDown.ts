@@ -100,13 +100,10 @@ const handleDropdown = () => {
 }
 
 const setUpLogLevels = (levelSelected?) => {
-    console.log(top.document.querySelector('#logLevelStyle'));
     top.document.querySelector('#logLevelStyle')?.remove();
 
     const defaultLogLevel = Cypress.env('LOG_LEVEL') ? Cypress.env('LOG_LEVEL') : Cypress.env('logLevel');
-    console.log(defaultLogLevel);
     const logLevel = levelSelected ? levelSelected : defaultLogLevel;
-    console.log(logLevel);
 
     const dropdownToggle = top.document.querySelector('.dropdown-toggle');
     dropdownToggle.querySelector('#logLevelSelected').textContent = logLevel ? logLevel : 'Log Level';
@@ -133,9 +130,3 @@ const setUpLogLevels = (levelSelected?) => {
 
     window.top.document.head.appendChild(style);
 }
-
-export const setConfig = (config) => {
-    console.log(config);
-    return null;
-}
-
