@@ -31,14 +31,14 @@ yarn add cypress-log-filter-plugin --dev
 
 You can configure the log level by adding a `logLevel` property to your `cypress.config.ts` configuration file:
 
-```json
+```
 e2e: {
-    env: {
-      logLevel: "VERBOSE"
-      ...
-    }
+  env: {
+    logLevel: "VERBOSE"
     ...
-  },
+  }
+  ...
+},
 ```
 
 The available log levels are:
