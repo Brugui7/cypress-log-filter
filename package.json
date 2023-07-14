@@ -10,7 +10,7 @@
     "/dist/*"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "webpack",
     "build:watch": "tsc -w"
   },
   "devDependencies": {
@@ -27,12 +27,17 @@
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-promise": "^6.1.1",
     "semantic-release": "^19.0.5",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "webpack-cli": "^5.1.4"
   },
   "peerDependencies": {
     "cypress": ">=10"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "ts-loader": "^9.4.4",
+    "webpack": "^5.88.1"
   }
 }

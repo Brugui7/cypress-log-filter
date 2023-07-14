@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "target": "ES6",
+    "module": "ES6",
+    "target": "ES5",
     "declaration": true,
     "allowJs": true,
     "skipLibCheck": true,
