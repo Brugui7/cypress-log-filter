@@ -4,7 +4,7 @@
   "name": "cypress-log-filter",
   "version": "1.0.2",
   "description": "Filter Cypress logs",
-  "homepage": "https://github.com/Brugui7/cypress-log-filter#readme"
+  "homepage": "https://github.com/Brugui7/cypress-log-filter#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/Brugui7/cypress-log-filter.git"
