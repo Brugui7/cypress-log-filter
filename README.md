@@ -25,6 +25,12 @@ or
 yarn add cypress-log-filter-plugin --dev
 ```
 
+Then, import the plugin in your `support/e2e.js` file
+
+```javascript
+require("cypress-log-filter");
+```
+
 ### Configuration
 
 #### Setting the Log Level in `cypress.config.ts`
@@ -65,6 +71,8 @@ For example, if the log level is set to **INFO**, all logs of level **INFO**, **
 #### Modifying Log Level in Cypress Test Runner
 
 When running Cypress with `npx cypress open`, the Cypress Log Filter Plugin adds a dropdown menu to the interface. This dropdown menu allows you to modify the log level on the fly while interacting with your tests.
+
+![Example](docs/media/example.gif)
 
 ### Contributing
 
