@@ -2,7 +2,7 @@
   "author": "Alejandro Brugarolas Sánchez-Lidón (https://brugui.dev)",
   "license": "ISC",
   "name": "cypress-log-filter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Filter Cypress logs",
   "main": "dist/index.js",
   "types": "dist/types.d.ts",
