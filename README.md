@@ -1,4 +1,7 @@
 ## Cypress Log Filter Plugin
+[![Node.js Package](https://github.com/Brugui7/cypress-log-filter/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/Brugui7/cypress-log-filter/actions/workflows/npm-publish.yml)
+![npm](https://img.shields.io/npm/dw/cypress-log-filter)
+![Static Badge](https://img.shields.io/badge/license-ISC-blue)
 
 The Cypress Log Filter Plugin is a plugin for Cypress that allows you to filter logs based on different log levels. This plugin provides a convenient way to control the log output during your Cypress test runs.
 
