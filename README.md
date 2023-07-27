@@ -19,13 +19,13 @@ If you prefer to disable the command log completely, refer to the official Cypre
 To install this plugin, you can use either npm or yarn:
 
 ```bash
-npm install cypress-log-filter-plugin --save-dev
+npm install cypress-log-filter --save-dev
 ```
 
 or
 
 ```bash
-yarn add cypress-log-filter-plugin --dev
+yarn add cypress-log-filter --dev
 ```
 
 Then, import the plugin in your `support/e2e.js` file
