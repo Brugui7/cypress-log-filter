@@ -2,7 +2,7 @@
   "author": "Alejandro Brugarolas Sánchez-Lidón (https://brugui.dev)",
   "license": "ISC",
   "name": "cypress-log-filter",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Filter Cypress logs",
   "homepage": "https://github.com/Brugui7/cypress-log-filter#readme",
   "repository": {
@@ -28,7 +28,7 @@
     "@types/node": "^18.16.19",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
-    "cypress": "^12.5.1",
+    "cypress": "^13.3.3",
     "eslint": "^8.44.0",
     "eslint-config-standard-with-typescript": "^36.0.0",
     "eslint-plugin-import": "^2.27.5",

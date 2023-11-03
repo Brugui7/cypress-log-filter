@@ -5,6 +5,11 @@ export const addLevelsDropDown = () => {
     }
 
     const testingPreferencesDiv = top.document.querySelector('#unified-reporter header');
+
+    if (!testingPreferencesDiv) {
+        return null;
+    }
+
     testingPreferencesDiv.appendChild(createStyle());
     testingPreferencesDiv.appendChild(createDropDownMenuItem());
     handleDropdown();
