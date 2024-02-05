@@ -1,3 +1,7 @@
+import {createDropDownMenuItem, createMoreOptionsButton, createMoreOptionsDiv } from "./html";
+import {createStyle} from "./css";
+import {debounce} from "./common";
+
 export const addLevelsDropDown = () => {
     const alreadyAdded = top.document.querySelector('#logLevelDiv')
     if (alreadyAdded) {
@@ -10,81 +14,18 @@ export const addLevelsDropDown = () => {
         return null;
     }
 
-    testingPreferencesDiv.appendChild(createStyle());
-    testingPreferencesDiv.appendChild(createDropDownMenuItem());
+    const container = top.document.createElement('div');
+    container.className = 'cypress-log-filter-container';
+    container.appendChild(createStyle());
+    container.appendChild(createDropDownMenuItem());
+    container.appendChild(createMoreOptionsButton());
+    testingPreferencesDiv.appendChild(container);
+    testingPreferencesDiv.appendChild(createMoreOptionsDiv());
     handleDropdown();
+    handleMoreOptionsButton();
+    handleInputSearch();
     setUpLogLevels();
     return null;
-}
-
-const createStyle = () => {
-    const reporterStyleEl = document.createElement('style');
-    reporterStyleEl.setAttribute('id', 'logHandlerDivStyle');
-    reporterStyleEl.innerHTML = `
-        .dropdown {
-          position: relative;
-          display: inline-block;
-        }
-        
-        .dropdown-toggle {
-          background-color: #272c33;
-          color: #fff;
-          padding: 10px 20px;
-          border: none;
-          cursor: pointer;
-        }
-        
-        .dropdown-toggle .dropdown-icon {
-          fill: #fff;
-          width: 12px;
-          height: 12px;
-          margin-left: 5px;
-          vertical-align: middle;
-        }
-        
-        .dropdown-menu {
-          top: 100%;
-          left: 0;
-          background-color: #fff;
-          border: 1px solid #ccc;
-          padding: 0;
-          margin-top: 5px;
-          list-style: none;
-          display: none;
-        }
-        
-        .dropdown-menu li {
-          cursor: pointer;
-          color: #000;
-          padding: 10px;
-        }
-        
-        .dropdown-menu li:hover {
-          background-color: #f0f0f0;
-        }
-    `;
-    return reporterStyleEl;
-}
-
-const createDropDownMenuItem = () => {
-    const dropdown = top.document.createElement('div');
-    dropdown.className = 'dropdown';
-    dropdown.id = 'logLevelDiv';
-    dropdown.innerHTML = `
-      <button class="dropdown-toggle">
-        <span id="logLevelSelected">Log level</span> 
-        <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M12 15.5l-6-6 1.41-1.41L12 12.68l4.59-4.59L18 9.5l-6 6z"/>
-        </svg>
-      </button>
-      <ul class="dropdown-menu">
-        <li>VERBOSE</li>
-        <li>INFO</li>
-        <li>ASSERT</li>
-        <li>ERROR</li>
-      </ul>
-    `;
-    return dropdown;
 }
 
 const handleDropdown = () => {
@@ -103,6 +44,44 @@ const handleDropdown = () => {
         });
     });
 }
+
+const handleMoreOptionsButton = () => {
+    const moreOptionsContainer: HTMLElement = top.document.querySelector('#moreOptionsContainer');
+    const moreOptionsBtn: HTMLElement = top.document.querySelector('#moreOptionsBtn');
+    const inputSearch: HTMLInputElement = top.document.querySelector('#inputSearch');
+
+    moreOptionsBtn.addEventListener('click', () => {
+        moreOptionsContainer.style.display = moreOptionsContainer.style.display === 'flex' ? 'none' : 'flex';
+        inputSearch.value = '';
+    });
+}
+
+const handleInputSearch = () => {
+    const inputSearch: HTMLInputElement = top.document.querySelector('#inputSearch');
+    inputSearch.addEventListener('input',
+        debounce(() => {
+            const searchTerm = inputSearch.value.toUpperCase().trim();
+
+            top.document.querySelectorAll('.hide-search-result').forEach(element => {
+                console.log(element);
+                element.classList.remove('hide-search-result');
+                console.log(element);
+            });
+
+            if (!searchTerm) {
+                return;
+            }
+
+            top.document.querySelectorAll('li[class^="command"]').forEach((li: HTMLLIElement) => {
+                console.log(li);
+                if (!li.textContent.toUpperCase().includes(searchTerm)) {
+                    li.classList.add('hide-search-result');
+                }
+            });
+        }, 600)
+    );
+
+};
 
 const setUpLogLevels = (levelSelected?) => {
     top.document.querySelector('#logLevelStyle')?.remove();
