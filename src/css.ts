@@ -13,6 +13,10 @@ export const createStyle = () => {
             justify-content: center;
         }
         
+        #moreOptionsBtn > svg {
+            padding-bottom: 2px;
+        }
+        
         .cypress-log-filter-container {
             display:flex;
             align-items:center;

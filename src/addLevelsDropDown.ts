@@ -53,6 +53,7 @@ const handleMoreOptionsButton = () => {
     moreOptionsBtn.addEventListener('click', () => {
         moreOptionsContainer.style.display = moreOptionsContainer.style.display === 'flex' ? 'none' : 'flex';
         inputSearch.value = '';
+        resetSearchResults();
     });
 }
 
@@ -61,12 +62,8 @@ const handleInputSearch = () => {
     inputSearch.addEventListener('input',
         debounce(() => {
             const searchTerm = inputSearch.value.toUpperCase().trim();
+            resetSearchResults();
 
-            top.document.querySelectorAll('.hide-search-result').forEach(element => {
-                console.log(element);
-                element.classList.remove('hide-search-result');
-                console.log(element);
-            });
 
             if (!searchTerm) {
                 return;
@@ -82,6 +79,12 @@ const handleInputSearch = () => {
     );
 
 };
+
+const resetSearchResults = () => {
+    top.document.querySelectorAll('.hide-search-result').forEach(element => {
+        element.classList.remove('hide-search-result');
+    });
+}
 
 const setUpLogLevels = (levelSelected?) => {
     top.document.querySelector('#logLevelStyle')?.remove();
