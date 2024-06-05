@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: cypress-log-filter
+  description: |
+    Filter Cypress logs based on different log levels.
+    Control the log output during your Cypress test runs.
+    Reduce memory consumption by optimizing the amount of displayed logs
+  annotations:
+    github.com/project-slug: Brugui7/cypress-log-filter
+spec:
+  owner: abrugaro
+  type: library
+  lifecycle: production
